@@ -29,7 +29,7 @@ public class StudentRepository {
             statement.setInt(2, student.getAge());
             statement.setString(3, student.getEmail());
             statement.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Error saving student", e);
         }
     }
@@ -49,7 +49,15 @@ public class StudentRepository {
                         String[] names = fullName.split(" ", 2);
 
                         String firstName = names[0];
-                        String lastName = names.length > 1 ? names[1] : "";
+                        String lastName;
+                        if(names.length > 1 ){
+                            lastName=names[1];
+
+                        }else {
+                            lastName = "";
+                        }
+                        Student student=new Student(firstName,lastName,email,age);
+                        students.add(student);
                     }
                 }
             } catch (SQLException e) {

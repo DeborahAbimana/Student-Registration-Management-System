@@ -1,6 +1,7 @@
 package org.example.studentmanagementsystem.model;
 
 public class Student {
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -9,7 +10,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(int age, String email, String firstName, String lastName) {
+    public Student( String firstName, String lastName, String email,int age) {
         this.age = age;
         this.email = email;
         this.firstName = firstName;
@@ -46,5 +47,13 @@ public class Student {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
